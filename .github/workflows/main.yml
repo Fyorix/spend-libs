@@ -43,8 +43,7 @@ jobs:
         run: yarn workspace @spend-app/lib/${{ matrix.package }} lint
 
       - name: Test ${{ matrix.package }}
-        run: yarn workspace @spend-app/lib/${{ matrix.package }} test      - uses: actions/checkout@v4
-
+        run: yarn workspace @spend-app/lib/${{ matrix.package }} test
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
