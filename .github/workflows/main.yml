@@ -63,19 +63,19 @@ jobs:
         run: yarn workspace @spend-app/lib/${{ matrix.package }} test
 
 
-publish:
-  needs: [changes, quality]
-  if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-  runs-on: ubuntu-latest
-  steps:
-      # Setup .npmrc file to publish to npm
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '24.14.0'
-          registry-url: 'https://registry.npmjs.org'
-          # Defaults to the user or organization that owns the workflow file
-          scope: '@spend-app'
-      - run: yarn
-      - run: yarn npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+  publish:
+    needs: [changes, quality]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+        # Setup .npmrc file to publish to npm
+        - uses: actions/setup-node@v4
+          with:
+            node-version: '24.14.0'
+            registry-url: 'https://registry.npmjs.org'
+            # Defaults to the user or organization that owns the workflow file
+            scope: '@spend-app'
+        - run: yarn
+        - run: yarn npm publish
+          env:
+            NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
