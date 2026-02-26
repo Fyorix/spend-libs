@@ -27,12 +27,18 @@ jobs:
       #   package: ${{ fromJson(needs.changes.outputs.packages) }}
 
     steps:
-      - uses: actions/checkout@v4
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+     # setup node, without cache because we will enable corepack and use yarn's cache
+      - name: Install Node.js
+        uses: actions/setup-node@v5
         with:
           node-version: 24.14.0
-          cache: 'yarn'
+          package-manager-cache: false
+      - name: Enable Corepack
+        run: corepack enable
+      - name: Configure dependency cache
+        uses: actions/setup-node@v5
+        with:
+          cache: yarn
 
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
@@ -45,8 +51,6 @@ jobs:
 
       - name: Test # ${{ matrix.package }}
         run: yarn workspace @spend-app/lib/${{ matrix.package }} test
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
 
   publish:
     needs: quality # [changes, quality]
@@ -54,7 +58,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         # Setup .npmrc file to publish to npm
-        - uses: actions/setup-node@v4
+        - uses: actions/setup-node@v5
           with:
             node-version: '24.14.0'
             registry-url: 'https://registry.npmjs.org'
