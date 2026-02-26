@@ -1,0 +1,66 @@
+name: Publish Package to npmjs
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Enable Corepack
+        shell: bash
+        run: corepack enable
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24.14.0'
+          cache: 'yarn'
+
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build
+        run: yarn build
+
+      - name: Lint
+        run: yarn lint
+
+      - name: Test
+        run: yarn test
+
+  publish:
+    needs: quality
+    if: (github.ref == 'refs/heads/main' && github.event_name == 'push') 
+    runs-on: ubuntu-latest
+    steps:
+        - name: Enable Corepack
+          shell: bash
+          run: corepack enable
+      
+        - uses: actions/checkout@v4
+        - uses: actions/setup-node@v4
+          with:
+            node-version: '24.14.0'
+            registry-url: 'https://registry.npmjs.org'
+            # Defaults to the user or organization that owns the workflow file
+            scope: '@spend-app'
+        - run: yarn
+        # - name: Setup npm authentication
+        #   run: | 
+        #     echo npmAuthToken: "$NODE_AUTH_TOKEN" > ./.yarnrc.yml
+        #   env:
+        #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        # - name: Cat the yarnrc file
+        #   run: cat ./.yarnrc.yml
+        - run: yarn npm publish --access public
+          env:
+            NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
