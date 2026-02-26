@@ -41,12 +41,11 @@ jobs:
     if: (github.ref == 'refs/heads/main' && github.event_name == 'push') || (github.event_name == 'pull_request')
     runs-on: ubuntu-latest
     steps:
-        # Setup .npmrc file to publish to npm
-        - uses: actions/checkout@v4
         - name: Enable Corepack
           shell: bash
           run: corepack enable
-
+      
+        - uses: actions/checkout@v4
         - uses: actions/setup-node@v4
           with:
             node-version: '24.14.0'
