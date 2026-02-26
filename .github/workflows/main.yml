@@ -6,24 +6,10 @@ on:
     branches: [main]
 
 jobs:
-  # changes:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v5
-  #     - uses: dorny/paths-filter@v3
-  #       id: filter
-  #       with: 
-  #         filters: |
-  #           shared: 'packages/shared/**'
-
   quality:
-    # needs: changes
-    # if: ${{ needs.changes.outputs.packages != '[]' }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      # matrix:
-      #   package: ${{ fromJson(needs.changes.outputs.packages) }}
 
     steps:
       - uses: actions/checkout@v4
@@ -51,12 +37,17 @@ jobs:
         run: yarn test
 
   publish:
-    needs: quality # [changes, quality]
+    needs: quality
     if: (github.ref == 'refs/heads/main' && github.event_name == 'push') || (github.event_name == 'pull_request')
     runs-on: ubuntu-latest
     steps:
         # Setup .npmrc file to publish to npm
-        - uses: actions/setup-node@v5
+        - uses: actions/checkout@v4
+        - name: Enable Corepack
+          shell: bash
+          run: corepack enable
+
+        - uses: actions/setup-node@v4
           with:
             node-version: '24.14.0'
             registry-url: 'https://registry.npmjs.org'
