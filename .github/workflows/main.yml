@@ -52,7 +52,7 @@ jobs:
 
   publish:
     needs: quality # [changes, quality]
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: (github.ref == 'refs/heads/main' && github.event_name == 'push') || (github.event_name == 'pull_request')
     runs-on: ubuntu-latest
     steps:
         # Setup .npmrc file to publish to npm
