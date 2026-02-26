@@ -55,7 +55,7 @@ jobs:
         - run: yarn
         - name: Setup npm authentication
           run: | 
-            echo npmAuthToken: "$NODE_AUTH_TOKEN" > ./.yarnrc.yml
+            echo "npmAuthToken: \"$NODE_AUTH_TOKEN\"" > ./.yarnrc.yml
           env:
             NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         - name: Cat the yarnrc file
