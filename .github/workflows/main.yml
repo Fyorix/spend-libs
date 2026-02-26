@@ -52,7 +52,7 @@ jobs:
             node-version: '24.14.0'
             registry-url: 'https://registry.npmjs.org'
             # Defaults to the user or organization that owns the workflow file
-            scope: '@spend-app'
+            scope: '@clement.pasteau'
         - run: yarn
         - name: Debug - check if token exists
           run: |
