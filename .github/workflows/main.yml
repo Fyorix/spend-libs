@@ -40,7 +40,6 @@ jobs:
     needs: quality
     if: (github.ref == 'refs/heads/main' && github.event_name == 'push') 
     runs-on: ubuntu-latest
-    environment: spend-libs-secrets
     steps:
         - name: Enable Corepack
           shell: bash
@@ -62,12 +61,12 @@ jobs:
               echo "TOKEN exists (length: ${#NODE_AUTH_TOKEN})"
             fi
           env:
-            NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+            NODE_AUTH_TOKEN: ${{ secrets.NPM_SECRET }}
         - name: Setup npm authentication
           run: | 
             echo "npmAuthToken: \"$NODE_AUTH_TOKEN\"" > ./.yarnrc.yml
           env:
-            NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+            NODE_AUTH_TOKEN: ${{ secrets.NPM_SECRET }}
         - name: Cat the yarnrc file
           run: cat ./.yarnrc.yml
         - run: yarn npm publish --access public
