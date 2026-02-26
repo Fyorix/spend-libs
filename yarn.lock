@@ -381,6 +381,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@clement.pasteau/lib@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@clement.pasteau/lib@workspace:."
+  dependencies:
+    "@types/jest": "npm:^30.0.0"
+    "@types/node": "npm:^25.3.0"
+    eslint: "npm:^10.0.2"
+    jest: "npm:30.0.0"
+    jest-util: "npm:^30.2.0"
+    ts-jest: "npm:^29.4.6"
+    ts-node: "npm:^10.9.2"
+    typescript: "npm:^5.9.3"
+  languageName: unknown
+  linkType: soft
+
 "@cspotcode/source-map-support@npm:^0.8.0":
   version: 0.8.1
   resolution: "@cspotcode/source-map-support@npm:0.8.1"
@@ -1013,21 +1028,6 @@ __metadata:
   checksum: 10c0/a707476efd523d2138ef6bba916c83c4a377a8372ef04fad87499458af9f01afc58f4f245c5fd062793d6d70587309330c6f96947b5bd5697961c18004dc3e26
   languageName: node
   linkType: hard
-
-"@spend-app/lib@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "@spend-app/lib@workspace:."
-  dependencies:
-    "@types/jest": "npm:^30.0.0"
-    "@types/node": "npm:^25.3.0"
-    eslint: "npm:^10.0.2"
-    jest: "npm:30.0.0"
-    jest-util: "npm:^30.2.0"
-    ts-jest: "npm:^29.4.6"
-    ts-node: "npm:^10.9.2"
-    typescript: "npm:^5.9.3"
-  languageName: unknown
-  linkType: soft
 
 "@tsconfig/node10@npm:^1.0.7":
   version: 1.0.12
