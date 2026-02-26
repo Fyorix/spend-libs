@@ -17,6 +17,10 @@
   },
   "scripts": {
     "test": "jest",
-    "build": "tsc"
+    "build": "tsc",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "eslint": "^10.0.2"
   }
 }
