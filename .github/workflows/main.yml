@@ -40,6 +40,7 @@ jobs:
     needs: quality
     if: (github.ref == 'refs/heads/main' && github.event_name == 'push') 
     runs-on: ubuntu-latest
+    environment: spend-libs-secrets
     steps:
         - name: Enable Corepack
           shell: bash
