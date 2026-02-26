@@ -1,29 +1,30 @@
 name: Publish Package to npmjs
 on:
-  push: 
+  push:
     branches: [main]
   pull_request:
     branches: [main]
+  workflow_dispatch: {}
 
 jobs:
-  changes:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v5
-      - uses: dorny/paths-filter@v3
-        id: filter
-        with: 
-          filters: |
-            shared: 'packages/shared/**'
+  # changes:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v5
+  #     - uses: dorny/paths-filter@v3
+  #       id: filter
+  #       with: 
+  #         filters: |
+  #           shared: 'packages/shared/**'
 
   quality:
-    needs: changes
-    if: ${{ needs.changes.outputs.packages != '[]' }}
+    # needs: changes
+    # if: ${{ needs.changes.outputs.packages != '[]' }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      matrix:
-        package: ${{ fromJson(needs.changes.outputs.packages) }}
+      # matrix:
+      #   package: ${{ fromJson(needs.changes.outputs.packages) }}
 
     steps:
       - uses: actions/checkout@v4
@@ -36,36 +37,20 @@ jobs:
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Build ${{ matrix.package }}
+      - name: Build # ${{ matrix.package }}
         run: yarn workspace @spend-app/lib/${{ matrix.package }} build
 
-      - name: Lint ${{ matrix.package }}
+      - name: Lint # ${{ matrix.package }}
         run: yarn workspace @spend-app/lib/${{ matrix.package }} lint
 
-      - name: Test ${{ matrix.package }}
+      - name: Test # ${{ matrix.package }}
         run: yarn workspace @spend-app/lib/${{ matrix.package }} test
       - name: Setup Node.js
         uses: actions/setup-node@v4
-        with:
-          node-version: 24.14.0
-          cache: 'yarn'
-
-      - name: Install Dependencies
-        run: yarn install --frozen-lockfile
-
-      - name: Build ${{ matrix.package }}
-        run: yarn workspace @spend-app/lib/${{ matrix.package }} build
-
-      - name: Lint ${{ matrix.package }}
-        run: yarn workspace @spend-app/lib/${{ matrix.package }} lint
-
-      - name: Test ${{ matrix.package }}
-        run: yarn workspace @spend-app/lib/${{ matrix.package }} test
-
 
   publish:
-    needs: [changes, quality]
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    needs: quality # [changes, quality]
+    if: (github.ref == 'refs/heads/main' && github.event_name == 'push') || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
         # Setup .npmrc file to publish to npm
@@ -76,6 +61,6 @@ jobs:
             # Defaults to the user or organization that owns the workflow file
             scope: '@spend-app'
         - run: yarn
-        - run: yarn npm publish
+        - run: yarn npm publish --access public
           env:
             NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
