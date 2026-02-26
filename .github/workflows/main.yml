@@ -53,6 +53,9 @@ jobs:
             # Defaults to the user or organization that owns the workflow file
             scope: '@spend-app'
         - run: yarn
-        - run: yarn npm publish --access public
+        - name: Setup npm authentication
+          run: | 
+            echo npmAuthToken: "$NODE_AUTH_TOKEN" >> ./.yarnrc.yml
           env:
             NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        - run: yarn npm publish --access public
