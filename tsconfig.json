@@ -12,7 +12,7 @@
     "emitDecoratorMetadata": true,
     "baseUrl": ".",
     "paths": {
-      "@fyorix/*": ["packages/*/src/index.ts"]
+      "@clement.pasteau/*": ["packages/*/src/index.ts"]
     }
   },
   "include": ["packages/*/src/**/*"],

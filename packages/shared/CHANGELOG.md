@@ -1,4 +1,4 @@
-# @fyorix/shared
+# @clement.pasteau/shared
 
 ## 0.2.0
 

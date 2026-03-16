@@ -1,4 +1,4 @@
-# @fyorix/account-service
+# @clement.pasteau/account-service
 
 ## 0.2.0
 
@@ -9,4 +9,4 @@
 ### Patch Changes
 
 - Updated dependencies
-  - @fyorix/shared@0.2.0
+  - @clement.pasteau/shared@0.2.0

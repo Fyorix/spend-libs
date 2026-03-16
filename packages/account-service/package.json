@@ -1,5 +1,5 @@
 {
-  "name": "@fyorix/account-service",
+  "name": "@clement.pasteau/account-service",
   "version": "0.2.0",
   "description": "Account service domain library",
   "license": "UNLICENSED",
@@ -28,7 +28,7 @@
     "test": "echo \"No tests yet\""
   },
   "dependencies": {
-    "@fyorix/shared": "workspace:*",
+    "@clement.pasteau/shared": "workspace:*",
     "typeorm": "^0.3.28"
   },
   "devDependencies": {

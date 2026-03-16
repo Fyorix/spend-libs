@@ -635,6 +635,44 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@clement.pasteau/account-service@workspace:packages/account-service":
+  version: 0.0.0-use.local
+  resolution: "@clement.pasteau/account-service@workspace:packages/account-service"
+  dependencies:
+    "@clement.pasteau/shared": "workspace:*"
+    "@eslint/js": "npm:^10.0.1"
+    "@types/jest": "npm:^30.0.0"
+    "@types/node": "npm:^25.5.0"
+    eslint: "npm:^10.0.3"
+    typeorm: "npm:^0.3.28"
+    typescript: "npm:^5.9.3"
+    typescript-eslint: "npm:^8.57.1"
+  languageName: unknown
+  linkType: soft
+
+"@clement.pasteau/contracts@workspace:packages/contracts":
+  version: 0.0.0-use.local
+  resolution: "@clement.pasteau/contracts@workspace:packages/contracts"
+  dependencies:
+    "@eslint/js": "npm:^10.0.1"
+    "@nestjs/common": "npm:^11.1.17"
+    "@nestjs/core": "npm:^11.1.17"
+    "@nestjs/microservices": "npm:^11.1.17"
+    "@types/jest": "npm:^30.0.0"
+    "@types/node": "npm:^25.5.0"
+    eslint: "npm:^10.0.3"
+    protobufjs: "npm:7.5.3"
+    reflect-metadata: "npm:^0.2.2"
+    rxjs: "npm:^7.8.2"
+    ts-proto: "npm:^2.11.5"
+    typescript: "npm:5.7.3"
+    typescript-eslint: "npm:^8.57.1"
+  peerDependencies:
+    "@nestjs/microservices": ^11.0.0
+    rxjs: ^7.0.0
+  languageName: unknown
+  linkType: soft
+
 "@clement.pasteau/lib@workspace:.":
   version: 0.0.0-use.local
   resolution: "@clement.pasteau/lib@workspace:."
@@ -655,6 +693,34 @@ __metadata:
   dependenciesMeta:
     ts-proto@2.11.5:
       unplugged: true
+  languageName: unknown
+  linkType: soft
+
+"@clement.pasteau/shared@workspace:*, @clement.pasteau/shared@workspace:packages/shared":
+  version: 0.0.0-use.local
+  resolution: "@clement.pasteau/shared@workspace:packages/shared"
+  dependencies:
+    "@eslint/js": "npm:^10.0.1"
+    "@types/jest": "npm:^30.0.0"
+    "@types/node": "npm:^25.5.0"
+    eslint: "npm:^10.0.3"
+    typescript: "npm:^5.9.3"
+    typescript-eslint: "npm:^8.57.1"
+  languageName: unknown
+  linkType: soft
+
+"@clement.pasteau/user-service@workspace:packages/user-service":
+  version: 0.0.0-use.local
+  resolution: "@clement.pasteau/user-service@workspace:packages/user-service"
+  dependencies:
+    "@clement.pasteau/shared": "workspace:*"
+    "@eslint/js": "npm:^10.0.1"
+    "@types/jest": "npm:^30.0.0"
+    "@types/node": "npm:^25.5.0"
+    eslint: "npm:^10.0.3"
+    typeorm: "npm:^0.3.28"
+    typescript: "npm:^5.9.3"
+    typescript-eslint: "npm:^8.57.1"
   languageName: unknown
   linkType: soft
 
@@ -807,72 +873,6 @@ __metadata:
   checksum: 10c0/f8354a7b92cc41e7a55d51986d192134be84f9dc0c91b5e649d075d733b56981c4ca8bf4460d54120c4c87b47984167bad2cb9bceb303f11b0a3bad22b3ed06a
   languageName: node
   linkType: hard
-
-"@fyorix/account-service@workspace:packages/account-service":
-  version: 0.0.0-use.local
-  resolution: "@fyorix/account-service@workspace:packages/account-service"
-  dependencies:
-    "@eslint/js": "npm:^10.0.1"
-    "@fyorix/shared": "workspace:*"
-    "@types/jest": "npm:^30.0.0"
-    "@types/node": "npm:^25.5.0"
-    eslint: "npm:^10.0.3"
-    typeorm: "npm:^0.3.28"
-    typescript: "npm:^5.9.3"
-    typescript-eslint: "npm:^8.57.1"
-  languageName: unknown
-  linkType: soft
-
-"@fyorix/contracts@workspace:packages/contracts":
-  version: 0.0.0-use.local
-  resolution: "@fyorix/contracts@workspace:packages/contracts"
-  dependencies:
-    "@eslint/js": "npm:^10.0.1"
-    "@nestjs/common": "npm:^11.1.17"
-    "@nestjs/core": "npm:^11.1.17"
-    "@nestjs/microservices": "npm:^11.1.17"
-    "@types/jest": "npm:^30.0.0"
-    "@types/node": "npm:^25.5.0"
-    eslint: "npm:^10.0.3"
-    protobufjs: "npm:7.5.3"
-    reflect-metadata: "npm:^0.2.2"
-    rxjs: "npm:^7.8.2"
-    ts-proto: "npm:^2.11.5"
-    typescript: "npm:5.7.3"
-    typescript-eslint: "npm:^8.57.1"
-  peerDependencies:
-    "@nestjs/microservices": ^11.0.0
-    rxjs: ^7.0.0
-  languageName: unknown
-  linkType: soft
-
-"@fyorix/shared@workspace:*, @fyorix/shared@workspace:packages/shared":
-  version: 0.0.0-use.local
-  resolution: "@fyorix/shared@workspace:packages/shared"
-  dependencies:
-    "@eslint/js": "npm:^10.0.1"
-    "@types/jest": "npm:^30.0.0"
-    "@types/node": "npm:^25.5.0"
-    eslint: "npm:^10.0.3"
-    typescript: "npm:^5.9.3"
-    typescript-eslint: "npm:^8.57.1"
-  languageName: unknown
-  linkType: soft
-
-"@fyorix/user-service@workspace:packages/user-service":
-  version: 0.0.0-use.local
-  resolution: "@fyorix/user-service@workspace:packages/user-service"
-  dependencies:
-    "@eslint/js": "npm:^10.0.1"
-    "@fyorix/shared": "workspace:*"
-    "@types/jest": "npm:^30.0.0"
-    "@types/node": "npm:^25.5.0"
-    eslint: "npm:^10.0.3"
-    typeorm: "npm:^0.3.28"
-    typescript: "npm:^5.9.3"
-    typescript-eslint: "npm:^8.57.1"
-  languageName: unknown
-  linkType: soft
 
 "@gar/promise-retry@npm:^1.0.0":
   version: 1.0.2

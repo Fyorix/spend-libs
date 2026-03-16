@@ -1,4 +1,4 @@
-import { CommonMapper } from "@fyorix/shared";
+import { CommonMapper } from "@clement.pasteau/shared";
 
 export class AccountMapper implements CommonMapper<unknown, unknown> {
   toDomain(_model: unknown): unknown {

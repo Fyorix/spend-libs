@@ -1,4 +1,4 @@
-# @fyorix/contracts
+# @clement.pasteau/contracts
 
 ## 0.3.0
 
