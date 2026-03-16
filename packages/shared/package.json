@@ -4,6 +4,10 @@
   "description": "Shared library for spend-app",
   "license": "UNLICENSED",
   "type": "module",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
