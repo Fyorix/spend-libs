@@ -1,4 +1,4 @@
-export * from './user/user.pb.js';
+export * from './user/user.pb.js'
 
 export type { RegisterRequest, DeleteUserRequest } from './user/user.command.pb.js';
 export type { LoginRequest, GetUserRequest } from './user/user.query.pb.js';
