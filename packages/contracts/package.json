@@ -1,0 +1,45 @@
+{
+  "name": "@fyorix/contracts",
+  "version": "0.1.0",
+  "description": "Fyorix Spend App Contracts",
+  "license": "UNLICENSED",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "proto"
+  ],
+  "engines": {
+    "node": ">=24.14.0"
+  },
+  "scripts": {
+    "build": "yarn fix-esm && tsc -p tsconfig.json",
+    "fix-esm": "node scripts/fix-esm.mjs",
+    "lint": "eslint src/",
+    "gen-proto": "protoc --plugin=protoc-gen-ts_proto=$(yarn bin protoc-gen-ts_proto) --ts_proto_out=src --ts_proto_opt=nestJs=true,fileSuffix=.pb,esModuleInterop=true,importSuffix=.js --proto_path=proto proto/user/*.proto",
+    "test": "echo \"No tests yet\""
+  },
+  "devDependencies": {
+    "@nestjs/common": "^11.0.1",
+    "@nestjs/core": "^11.0.1",
+    "@nestjs/microservices": "^11.1.14",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2",
+    "ts-proto": "^2.11.5",
+    "typescript": "5.7.3"
+  },
+  "peerDependencies": {
+    "@nestjs/microservices": "^11.0.0",
+    "rxjs": "^7.0.0"
+  },
+  "dependencies": {
+    "protobufjs": "7.5.3"
+  }
+}
