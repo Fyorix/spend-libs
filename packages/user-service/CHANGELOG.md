@@ -1,5 +1,16 @@
 # @clement.pasteau/user-service
 
+## 0.3.0
+
+### Minor Changes
+
+- c171e98: patch login contract
+
+### Patch Changes
+
+- Updated dependencies [c171e98]
+  - @clement.pasteau/shared@0.3.0
+
 ## 0.2.1
 
 ### Patch Changes

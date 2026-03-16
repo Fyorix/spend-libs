@@ -1,5 +1,11 @@
 # @clement.pasteau/shared
 
+## 0.3.0
+
+### Minor Changes
+
+- c171e98: patch login contract
+
 ## 0.2.1
 
 ### Patch Changes

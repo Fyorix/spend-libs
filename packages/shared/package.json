@@ -1,6 +1,6 @@
 {
   "name": "@clement.pasteau/shared",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Shared library for spend-app",
   "license": "UNLICENSED",
   "type": "module",
