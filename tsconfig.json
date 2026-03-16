@@ -7,7 +7,9 @@
     "moduleResolution": "Node",
     "types": ["jest", "node"],
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   },
   "include": ["packages/*/src/**/*"],
 }
