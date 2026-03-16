@@ -71,11 +71,35 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           
+      - name: Resolve workspace dependencies
+        run: |
+          node -e "
+          const fs = require('fs');
+          const path = require('path');
+          const pkgsDir = 'packages';
+          const pkgs = fs.readdirSync(pkgsDir).filter(f => fs.statSync(path.join(pkgsDir, f)).isDirectory() && fs.existsSync(path.join(pkgsDir, f, 'package.json')));
+          const versions = {};
+          pkgs.forEach(p => {
+            const pj = JSON.parse(fs.readFileSync(path.join(pkgsDir, p, 'package.json'), 'utf8'));
+            versions[pj.name] = pj.version;
+          });
+          pkgs.forEach(p => {
+            const pjPath = path.join(pkgsDir, p, 'package.json');
+            let content = fs.readFileSync(pjPath, 'utf8');
+            Object.entries(versions).forEach(([name, ver]) => {
+              const regex = new RegExp('\"' + name + '\":\\s*\"workspace:\\*\"', 'g');
+              content = content.replace(regex, '\"' + name + '\": \"^' + ver + '\"');
+            });
+            fs.writeFileSync(pjPath, content);
+          });
+          "
+
       - name: Publish package
         run: |
           cd packages/${{ matrix.package }}
           yarn npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
 
 

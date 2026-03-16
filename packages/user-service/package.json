@@ -1,0 +1,29 @@
+{
+  "name": "@fyorix/user-service",
+  "version": "0.1.0",
+  "description": "User service domain library",
+  "license": "UNLICENSED",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=24.14.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "eslint src/",
+    "test": "echo \"No tests yet\""
+  },
+  "dependencies": {
+    "@fyorix/shared": "workspace:*"
+  }
+}
