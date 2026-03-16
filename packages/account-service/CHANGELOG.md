@@ -1,5 +1,16 @@
 # @clement.pasteau/account-service
 
+## 0.4.0
+
+### Minor Changes
+
+- Minor version bump for all packages to trigger deployment.
+
+### Patch Changes
+
+- Updated dependencies
+  - @clement.pasteau/shared@0.4.0
+
 ## 0.3.0
 
 ### Minor Changes
