@@ -771,6 +771,14 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fyorix/account-service@workspace:packages/account-service":
+  version: 0.0.0-use.local
+  resolution: "@fyorix/account-service@workspace:packages/account-service"
+  dependencies:
+    "@fyorix/shared": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
 "@fyorix/contracts@workspace:packages/contracts":
   version: 0.0.0-use.local
   resolution: "@fyorix/contracts@workspace:packages/contracts"
@@ -789,9 +797,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@fyorix/shared@workspace:packages/shared":
+"@fyorix/shared@workspace:*, @fyorix/shared@workspace:packages/shared":
   version: 0.0.0-use.local
   resolution: "@fyorix/shared@workspace:packages/shared"
+  languageName: unknown
+  linkType: soft
+
+"@fyorix/user-service@workspace:packages/user-service":
+  version: 0.0.0-use.local
+  resolution: "@fyorix/user-service@workspace:packages/user-service"
+  dependencies:
+    "@fyorix/shared": "workspace:*"
   languageName: unknown
   linkType: soft
 
