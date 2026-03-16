@@ -1,0 +1,25 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Spend: Fix IDE & SDKs",
+			"type": "shell",
+			"command": "yarn dlx @yarnpkg/sdks vscode",
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [],
+			"group": "none"
+		},
+		{
+			"label": "Spend: Run Unit Tests (Current File)",
+			"type": "shell",
+			"command": "yarn jest ${file}",
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [],
+			"group": "test"
+		}
+	]
+}

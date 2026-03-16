@@ -1,0 +1,44 @@
+{
+	"Spend App Service Unit Test": {
+		"prefix": "spend-service-unit",
+		"body": [
+			"import { ${1:ServiceName} } from './${2:service-file}';",
+			"",
+			"describe('${1:ServiceName} (Unit)', () => {",
+			"  let service: ${1:ServiceName};",
+			"  const mockRepo = {",
+			"    ${3:method}: jest.fn(),",
+			"  };",
+			"",
+			"  beforeEach(() => {",
+			"    service = new ${1:ServiceName}(mockRepo as unknown as any);",
+			"    jest.restoreAllMocks();",
+			"  });",
+			"",
+			"  it('should be defined', () => {",
+			"    expect(service).toBeDefined();",
+			"  });",
+			"",
+			"  describe('${3:method}', () => {",
+			"    it('should ${4:do something}', async () => {",
+			"      const spy = jest.spyOn(mockRepo, '${3:method}');",
+			"      await service.${3:method}();",
+			"      expect(spy).toHaveBeenCalled();",
+			"    });",
+			"  });",
+			"});"
+		],
+		"description": "Strict Unit Test for Spend App Service"
+	},
+	"Spend App Factory Entity": {
+		"prefix": "spend-factory",
+		"body": [
+			"export const create${1:EntityName}Entity = (overrides?: Partial<${1:EntityName}Entity>): ${1:EntityName}Entity => ({",
+			"  id: 1,",
+			"  ${2:field}: '${3:value}',",
+			"  ...overrides",
+			"} as ${1:EntityName}Entity);"
+		],
+		"description": "Factory for Entities following strict rules"
+	}
+}

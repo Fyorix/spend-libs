@@ -1,6 +1,8 @@
 // @ts-check
 // import eslint from '@eslint/js';
+// @ts-ignore
 import { defineConfig } from 'eslint/config';
+// @ts-ignore
 import tseslint from 'typescript-eslint';
 
 export default defineConfig([
