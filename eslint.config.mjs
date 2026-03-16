@@ -10,7 +10,8 @@ export default defineConfig([
       "**/node_modules/**",
       "**/dist/**",
       "**/.pnp.cjs",
-      "**/*.pb.ts"
+      "**/*.pb.ts",
+      "**/*.js"
     ],
   },
 

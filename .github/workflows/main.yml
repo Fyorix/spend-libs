@@ -7,6 +7,7 @@ on:
 
 jobs:
   quality:
+    name: Lint & Build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -30,76 +31,49 @@ jobs:
       - name: Lint
         run: yarn lint
 
-      - name: Test
-        run: yarn test
-
-  list-packages:
-    runs-on: ubuntu-latest
-    outputs:
-      packages: ${{ steps.set-matrix.outputs.packages }}
-    steps:
-      - uses: actions/checkout@v4
-      - id: set-matrix
-        run: |
-          PACKAGES=$(ls -d packages/*/ | xargs -I {} sh -c 'if [ -f {}/package.json ]; then basename {}; fi' | jq -R . | jq -s -c .)
-          echo "packages=$PACKAGES" >> $GITHUB_OUTPUT
-
   publish:
-    needs: [quality, list-packages]
+    name: Release
+    needs: quality
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
     environment: spend-libs-secrets
-    strategy:
-      matrix:
-        package: ${{ fromJson(needs.list-packages.outputs.packages) }}
+    permissions:
+      contents: write
+      id-token: write
     steps:
       - name: Enable Corepack
         shell: bash
         run: corepack enable
       
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - uses: actions/setup-node@v4
         with:
           node-version: '24.14.0'
           registry-url: 'https://registry.npmjs.org'
           
-      - run: yarn 
-      
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build all packages
+        run: yarn build
+
       - name: Setup npm authentication
         run: | 
           echo "npmAuthToken: \"$NODE_AUTH_TOKEN\"" > ./.yarnrc.yml
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           
-      - name: Resolve workspace dependencies
-        run: |
-          node -e "
-          const fs = require('fs');
-          const path = require('path');
-          const pkgsDir = 'packages';
-          const pkgs = fs.readdirSync(pkgsDir).filter(f => fs.statSync(path.join(pkgsDir, f)).isDirectory() && fs.existsSync(path.join(pkgsDir, f, 'package.json')));
-          const versions = {};
-          pkgs.forEach(p => {
-            const pj = JSON.parse(fs.readFileSync(path.join(pkgsDir, p, 'package.json'), 'utf8'));
-            versions[pj.name] = pj.version;
-          });
-          pkgs.forEach(p => {
-            const pjPath = path.join(pkgsDir, p, 'package.json');
-            let content = fs.readFileSync(pjPath, 'utf8');
-            Object.entries(versions).forEach(([name, ver]) => {
-              const regex = new RegExp('\"' + name + '\":\\s*\"workspace:\\*\"', 'g');
-              content = content.replace(regex, '\"' + name + '\": \"^' + ver + '\"');
-            });
-            fs.writeFileSync(pjPath, content);
-          });
-          "
+      - name: Resolve internal workspace dependencies
+        run: node scripts/resolve-workspaces.mjs
 
-      - name: Publish package
-        run: |
-          cd packages/${{ matrix.package }}
-          yarn npm publish --access public
+      - name: Create Release Pull Request or Publish to npm
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          publish: yarn changeset publish
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-
-

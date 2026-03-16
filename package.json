@@ -16,7 +16,7 @@
     "@changesets/cli": "^2.30.0",
     "@eslint/js": "^10.0.1",
     "@types/jest": "^30.0.0",
-    "@types/node": "^25.3.0",
+    "@types/node": "^25.5.0",
     "eslint": "^10.0.2",
     "jest": "30.0.0",
     "jest-util": "^30.2.0",
@@ -29,7 +29,9 @@
   "scripts": {
     "test": "jest",
     "build": "tsc",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "changeset": "changeset",
+    "release": "changeset publish"
   },
   "dependencies": {
     "typeorm": "^0.3.28"
