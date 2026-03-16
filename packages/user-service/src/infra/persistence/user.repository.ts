@@ -1,10 +1,11 @@
-import { IUserRepository } from "../../domain/core/ports/user.repository";
+import { UserEntity } from "../../domain/entities/user.entity.js";
+import { IUserRepository } from "../../domain/core/ports/user.repository.js";
 
 export class TypeORMUserRepository implements IUserRepository {
-    findById(id: number): Promise<any> {
+    async findById(_id: number): Promise<UserEntity | null> {
         throw new Error("Method not implemented.");
     }
-    save(user: any): Promise<void> {
+    async save(_user: UserEntity): Promise<void> {
         throw new Error("Method not implemented.");
     }   
 }

@@ -1,10 +1,10 @@
-import {CommonMapper} from "../../../../shared/src/infra/mappers/common.mapper";
+import { CommonMapper } from "../../../../shared/src/infra/mappers/common.mapper.js";
 
-export class AccountMapper implements CommonMapper<any/*AccountModel*/, any/*Account*/> {
-    toDomain(model: any) {
+export class AccountMapper implements CommonMapper<unknown, unknown> {
+    toDomain(_model: unknown): unknown {
         throw new Error("Method not implemented.");
     }
-    toPersistence(domain: any) {
+    toPersistence(_domain: unknown): unknown {
         throw new Error("Method not implemented.");
     }
 }

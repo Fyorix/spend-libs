@@ -9,7 +9,8 @@ export default defineConfig([
       "**/.yarn/**",
       "**/node_modules/**",
       "**/dist/**",
-      "**/.pnp.cjs"
+      "**/.pnp.cjs",
+      "**/*.pb.ts"
     ],
   },
 
@@ -17,5 +18,8 @@ export default defineConfig([
 
   {
     files: ["**/*.ts"],
+    rules: {
+      "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }]
+    }
   },
 ]);
