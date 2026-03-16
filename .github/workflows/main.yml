@@ -8,9 +8,6 @@ on:
 jobs:
   quality:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-
     steps:
       - uses: actions/checkout@v4
 
@@ -36,33 +33,49 @@ jobs:
       - name: Test
         run: yarn test
 
+  list-packages:
+    runs-on: ubuntu-latest
+    outputs:
+      packages: ${{ steps.set-matrix.outputs.packages }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: set-matrix
+        run: |
+          PACKAGES=$(ls -d packages/*/ | xargs -I {} sh -c 'if [ -f {}/package.json ]; then basename {}; fi' | jq -R . | jq -s -c .)
+          echo "packages=$PACKAGES" >> $GITHUB_OUTPUT
+
   publish:
-    needs: quality
-    if: (github.ref == 'refs/heads/main' && github.event_name == 'push') 
+    needs: [quality, list-packages]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
     environment: spend-libs-secrets
+    strategy:
+      matrix:
+        package: ${{ fromJson(needs.list-packages.outputs.packages) }}
     steps:
-        - name: Enable Corepack
-          shell: bash
-          run: corepack enable
+      - name: Enable Corepack
+        shell: bash
+        run: corepack enable
       
-        - uses: actions/checkout@v4
-        - uses: actions/setup-node@v4
-          with:
-            node-version: '24.14.0'
-            registry-url: 'https://registry.npmjs.org'
-            # Defaults to the user or organization that owns the workflow file
-            scope: '@clement.pasteau'
-        - run: yarn 
-        - name: Setup npm authentication
-          run: | 
-            echo "npmAuthToken: \"$NODE_AUTH_TOKEN\"" > ./.yarnrc.yml
-          env:
-            NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        - name: Cat the yarnrc file
-          run: cat ./.yarnrc.yml
-        - run: |
-            yarn npm publish --access public
-          env:
-            NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.14.0'
+          registry-url: 'https://registry.npmjs.org'
+          
+      - run: yarn 
+      
+      - name: Setup npm authentication
+        run: | 
+          echo "npmAuthToken: \"$NODE_AUTH_TOKEN\"" > ./.yarnrc.yml
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          
+      - name: Publish package
+        run: |
+          cd packages/${{ matrix.package }}
+          yarn npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
 
