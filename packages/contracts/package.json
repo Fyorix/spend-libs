@@ -1,6 +1,6 @@
 {
   "name": "@clement.pasteau/contracts",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Fyorix Spend App Contracts",
   "license": "UNLICENSED",
   "type": "module",
@@ -31,7 +31,7 @@
     "build": "yarn fix-esm && tsc -p tsconfig.json",
     "fix-esm": "node scripts/fix-esm.mjs",
     "lint": "eslint src/",
-    "gen-proto": "protoc --plugin=protoc-gen-ts_proto=$(yarn bin protoc-gen-ts_proto) --ts_proto_out=src --ts_proto_opt=nestJs=true,fileSuffix=.pb,esModuleInterop=true,importSuffix=.js --proto_path=proto proto/user/*.proto",
+    "gen-proto": "protoc --plugin=protoc-gen-ts_proto=$(yarn bin protoc-gen-ts_proto) --ts_proto_out=src --ts_proto_opt=nestJs=true,fileSuffix=.pb,esModuleInterop=true,importSuffix=.js --proto_path=proto proto/**/*.proto",
     "test": "echo \"No tests yet\""
   },
   "devDependencies": {

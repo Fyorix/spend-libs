@@ -1,8 +1,13 @@
-export * from './user/user.pb.js'
+export { User, USER_PACKAGE_NAME } from './user/user.pb.js';
+export { File, FILE_PACKAGE_NAME } from './file/file.pb.js';
 
 export type { RegisterRequest, DeleteUserRequest } from './user/user.command.pb.js';
 export type { LoginRequest, GetUserRequest } from './user/user.query.pb.js';
 export type { EmptyResponse, TokenResponse, UserResponse } from './user/user.responses.pb.js';
+
+export type { UploadFileRequest, UploadMetadata, DeleteFileRequest } from './file/file.command.pb.js';
+export type { GetFileRequest, GetUserFilesRequest } from './file/file.query.pb.js';
+export type { FileResponse, FileListResponse } from './file/file.responses.pb.js';
 
 export {
   UserServiceClient,
@@ -10,3 +15,10 @@ export {
   UserServiceControllerMethods,
   USER_SERVICE_NAME
 } from './user/user.services.pb.js';
+
+export {
+  FileServiceClient,
+  FileServiceController,
+  FileServiceControllerMethods,
+  FILE_SERVICE_NAME
+} from './file/file.services.pb.js';

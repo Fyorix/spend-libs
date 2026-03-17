@@ -1,5 +1,11 @@
 # @clement.pasteau/contracts
 
+## 0.5.0
+
+### Minor Changes
+
+- Added file upload streaming support.
+
 ## 0.4.0
 
 ### Minor Changes
