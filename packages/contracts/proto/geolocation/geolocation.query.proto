@@ -10,4 +10,5 @@ message GetNearbyTransactionsRequest {
 
 message AutocompleteRequest {
   string query = 1;
+  string provider = 2;
 }
