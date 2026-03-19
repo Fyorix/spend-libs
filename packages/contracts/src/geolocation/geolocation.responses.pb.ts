@@ -20,4 +20,8 @@ export interface GetNearbyTransactionsResponse {
   transactions: TransactionPoint[];
 }
 
+export interface AutocompleteResponse {
+  suggestions: string[];
+}
+
 export const GEOLOCATION_PACKAGE_NAME = "geolocation";

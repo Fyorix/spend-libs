@@ -1,5 +1,11 @@
 # @clement.pasteau/contracts
 
+## 0.7.0
+
+### Minor Changes
+
+- Autocomplet GRPC Methode
+
 ## 0.6.0
 
 ### Minor Changes

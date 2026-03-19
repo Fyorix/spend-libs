@@ -14,4 +14,8 @@ export interface GetNearbyTransactionsRequest {
   radiusKm: number;
 }
 
+export interface AutocompleteRequest {
+  query: string;
+}
+
 export const GEOLOCATION_PACKAGE_NAME = "geolocation";
