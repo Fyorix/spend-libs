@@ -1,5 +1,11 @@
 # @clement.pasteau/contracts
 
+## 0.7.2
+
+### Patch Changes
+
+- provider added on request geoloc
+
 ## 0.7.1
 
 ### Patch Changes

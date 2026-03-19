@@ -16,6 +16,7 @@ export interface GetNearbyTransactionsRequest {
 
 export interface AutocompleteRequest {
   query: string;
+  provider: string;
 }
 
 export const GEOLOCATION_PACKAGE_NAME = "geolocation";

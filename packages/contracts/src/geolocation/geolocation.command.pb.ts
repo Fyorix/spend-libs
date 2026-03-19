@@ -13,6 +13,7 @@ export interface TrackTransactionRequest {
   address: string;
   amount: number;
   userId: string;
+  provider: string;
 }
 
 export const GEOLOCATION_PACKAGE_NAME = "geolocation";
