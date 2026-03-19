@@ -1,5 +1,11 @@
 # @clement.pasteau/contracts
 
+## 0.7.1
+
+### Patch Changes
+
+- fix Autocomplet import
+
 ## 0.7.0
 
 ### Minor Changes
