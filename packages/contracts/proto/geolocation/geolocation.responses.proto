@@ -14,6 +14,3 @@ message GetNearbyTransactionsResponse {
   repeated TransactionPoint transactions = 1;
 }
 
-message AutocompleteResponse {
-  repeated string suggestions = 1;
-}

@@ -1,6 +1,6 @@
 {
   "name": "@clement.pasteau/contracts",
-  "version": "0.7.2",
+  "version": "0.8.0",
   "description": "Fyorix Spend App Contracts",
   "license": "UNLICENSED",
   "type": "module",

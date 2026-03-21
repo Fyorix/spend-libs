@@ -1,5 +1,11 @@
 # @clement.pasteau/contracts
 
+## 0.8.0
+
+### Minor Changes
+
+- remove auto
+
 ## 0.7.2
 
 ### Patch Changes

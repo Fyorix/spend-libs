@@ -8,12 +8,8 @@
 import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
 import { Observable } from "rxjs";
 import { TrackTransactionRequest } from "./geolocation.command.pb.js";
-import { AutocompleteRequest, GetNearbyTransactionsRequest } from "./geolocation.query.pb.js";
-import {
-  AutocompleteResponse,
-  GetNearbyTransactionsResponse,
-  TrackTransactionResponse,
-} from "./geolocation.responses.pb.js";
+import { GetNearbyTransactionsRequest } from "./geolocation.query.pb.js";
+import { GetNearbyTransactionsResponse, TrackTransactionResponse } from "./geolocation.responses.pb.js";
 
 export const protobufPackage = "geolocation";
 
@@ -23,8 +19,6 @@ export interface GeolocationServiceClient {
   trackTransaction(request: TrackTransactionRequest): Observable<TrackTransactionResponse>;
 
   getNearbyTransactions(request: GetNearbyTransactionsRequest): Observable<GetNearbyTransactionsResponse>;
-
-  autocomplete(request: AutocompleteRequest): Observable<AutocompleteResponse>;
 }
 
 export interface GeolocationServiceController {
@@ -35,15 +29,11 @@ export interface GeolocationServiceController {
   getNearbyTransactions(
     request: GetNearbyTransactionsRequest,
   ): Promise<GetNearbyTransactionsResponse> | Observable<GetNearbyTransactionsResponse> | GetNearbyTransactionsResponse;
-
-  autocomplete(
-    request: AutocompleteRequest,
-  ): Promise<AutocompleteResponse> | Observable<AutocompleteResponse> | AutocompleteResponse;
 }
 
 export function GeolocationServiceControllerMethods() {
   return function (constructor: Function) {
-    const grpcMethods: string[] = ["trackTransaction", "getNearbyTransactions", "autocomplete"];
+    const grpcMethods: string[] = ["trackTransaction", "getNearbyTransactions"];
     for (const method of grpcMethods) {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
       GrpcMethod("GeolocationService", method)(constructor.prototype[method], method, descriptor);
