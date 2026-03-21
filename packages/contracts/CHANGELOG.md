@@ -1,5 +1,11 @@
 # @clement.pasteau/contracts
 
+## 1.0.0
+
+### Major Changes
+
+- adding tag for transaction
+
 ## 0.8.0
 
 ### Minor Changes

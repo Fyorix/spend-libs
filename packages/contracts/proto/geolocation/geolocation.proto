@@ -12,4 +12,5 @@ message TransactionPoint {
   double latitude = 2;
   double longitude = 3;
   double amount = 4;
+  string tag = 5;
 }

@@ -1,5 +1,11 @@
 # @clement.pasteau/shared
 
+## 1.0.0
+
+### Major Changes
+
+- adding tag for transaction
+
 ## 0.4.0
 
 ### Minor Changes

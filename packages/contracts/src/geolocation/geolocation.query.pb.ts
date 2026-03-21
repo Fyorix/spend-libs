@@ -12,6 +12,7 @@ export interface GetNearbyTransactionsRequest {
   latitude: number;
   longitude: number;
   radiusKm: number;
+  tag: string;
 }
 
 export const GEOLOCATION_PACKAGE_NAME = "geolocation";

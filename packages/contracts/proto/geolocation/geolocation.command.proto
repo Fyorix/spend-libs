@@ -8,4 +8,5 @@ message TrackTransactionRequest {
   double amount = 3;
   string userId = 4;
   string provider = 5;
+  string tag = 6;
 }

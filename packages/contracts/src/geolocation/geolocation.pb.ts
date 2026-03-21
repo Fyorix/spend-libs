@@ -18,6 +18,7 @@ export interface TransactionPoint {
   latitude: number;
   longitude: number;
   amount: number;
+  tag: string;
 }
 
 export const GEOLOCATION_PACKAGE_NAME = "geolocation";
