@@ -1,5 +1,11 @@
 # @clement.pasteau/contracts
 
+## 1.2.3
+
+### Patch Changes
+
+- fix index.ts
+
 ## 1.2.2
 
 ### Patch Changes

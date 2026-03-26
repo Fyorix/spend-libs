@@ -23,7 +23,11 @@ export type { GetFileRequest, GetUserFilesRequest } from './file/file.query.pb.j
 export type { FileResponse, FileListResponse } from './file/file.responses.pb.js';
 
 export type { TrackTransactionRequest } from './geolocation/geolocation.command.pb.js';
-export type { GetNearbyTransactionsRequest } from './geolocation/geolocation.query.pb.js';
+export type { 
+  GetNearbyTransactionsRequest, 
+  GetMapZonesRequest,
+  GetMapZonesResponse
+} from './geolocation/geolocation.query.pb.js';
 export type { TrackTransactionResponse, GetNearbyTransactionsResponse } from './geolocation/geolocation.responses.pb.js';
 
 export {
