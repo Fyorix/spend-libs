@@ -10,9 +10,15 @@ export enum MapEventType {
   ZONE_UPDATED = 'ZONE_UPDATED',
 }
 
+export enum WebSocketEvent {
+  TRANSACTION_PING = 'transaction-ping',
+  ZONE_UPDATE = 'zone-update',
+}
+
 export enum MapMode {
   INDIVIDUAL = 'INDIVIDUAL',
   WEIGHTED = 'WEIGHTED',
+  HEATMAP = 'HEATMAP',
 }
 
 export interface TransactionCreatedPayload {

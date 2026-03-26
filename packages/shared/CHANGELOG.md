@@ -1,5 +1,17 @@
 # @clement.pasteau/shared
 
+## 1.3.2
+
+### Patch Changes
+
+- map mode
+
+## 1.3.1
+
+### Patch Changes
+
+- adding enum for WS-EVENT
+
 ## 1.3.0
 
 ### Minor Changes

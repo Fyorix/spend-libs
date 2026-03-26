@@ -1,5 +1,19 @@
 # @clement.pasteau/user-service
 
+## 0.4.8
+
+### Patch Changes
+
+- Updated dependencies
+  - @clement.pasteau/shared@1.3.2
+
+## 0.4.7
+
+### Patch Changes
+
+- Updated dependencies
+  - @clement.pasteau/shared@1.3.1
+
 ## 0.4.6
 
 ### Patch Changes

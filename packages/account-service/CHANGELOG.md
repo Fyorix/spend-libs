@@ -1,5 +1,19 @@
 # @clement.pasteau/account-service
 
+## 0.4.10
+
+### Patch Changes
+
+- Updated dependencies
+  - @clement.pasteau/shared@1.3.2
+
+## 0.4.9
+
+### Patch Changes
+
+- Updated dependencies
+  - @clement.pasteau/shared@1.3.1
+
 ## 0.4.8
 
 ### Patch Changes
