@@ -1,5 +1,11 @@
 # @clement.pasteau/contracts
 
+## 1.3.1
+
+### Patch Changes
+
+- adding tag on zone
+
 ## 1.3.0
 
 ### Minor Changes

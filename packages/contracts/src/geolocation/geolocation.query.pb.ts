@@ -19,6 +19,7 @@ export interface GetMapZonesRequest {
   latitude: number;
   longitude: number;
   radiusKm: number;
+  tag: string;
 }
 
 export interface MapZone {
