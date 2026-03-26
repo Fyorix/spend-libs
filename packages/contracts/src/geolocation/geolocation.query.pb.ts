@@ -27,6 +27,7 @@ export interface MapZone {
   longitude: number;
   weight: number;
   radius: number;
+  tag: string;
 }
 
 export interface GetMapZonesResponse {

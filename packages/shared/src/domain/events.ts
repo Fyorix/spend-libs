@@ -29,6 +29,7 @@ export interface ZoneUpdatedPayload {
   longitude: number;
   weight: number;
   radius: number;
+  tag?: string;
 }
 
 export interface GetMapZonesResponse {

@@ -1,5 +1,11 @@
 # @clement.pasteau/shared
 
+## 1.3.0
+
+### Minor Changes
+
+- adding tag on zone
+
 ## 1.2.2
 
 ### Patch Changes

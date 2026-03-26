@@ -21,6 +21,7 @@ message MapZone {
   double longitude = 3;
   int32 weight = 4;
   int32 radius = 5;
+  string tag = 6;
 }
 
 message GetMapZonesResponse {
