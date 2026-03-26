@@ -5,11 +5,33 @@ export enum AccountEventAccountType {
   ACCOUNT_CREATED = 'ACCOUNT_CREATED',
 }
 
+export enum MapEventType {
+  TRANSACTION_PINGED = 'TRANSACTION_PINGED',
+  ZONE_UPDATED = 'ZONE_UPDATED',
+}
+
 export interface TransactionCreatedPayload {
   transactionId: string;
   address: string;
   amount: number;
   userId: string;
+  tag: EventTag;
+}
+
+export interface ZoneUpdatedPayload {
+  id: string;
+  latitude: number;
+  longitude: number;
+  weight: number;
+  radius: number;
+}
+
+export interface TransactionPingedPayload {
+  transactionId: string;
+  userId: string;
+  latitude: number;
+  longitude: number;
+  amount: number;
   tag: EventTag;
 }
 
@@ -20,4 +42,12 @@ export interface RedisEvent<T = unknown> {
 
 export interface TransactionCreatedEvent extends RedisEvent<TransactionCreatedPayload> {
   type: AccountEventAccountType.TRANSACTION_CREATED;
+}
+
+export interface ZoneUpdatedEvent extends RedisEvent<ZoneUpdatedPayload> {
+  type: MapEventType.ZONE_UPDATED;
+}
+
+export interface TransactionPingedEvent extends RedisEvent<TransactionPingedPayload> {
+  type: MapEventType.TRANSACTION_PINGED;
 }

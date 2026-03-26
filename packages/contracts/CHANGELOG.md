@@ -1,5 +1,11 @@
 # @clement.pasteau/contracts
 
+## 1.2.0
+
+### Minor Changes
+
+- events websockets
+
 ## 1.1.0
 
 ### Minor Changes

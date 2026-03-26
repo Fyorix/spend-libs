@@ -1,6 +1,6 @@
 export { User, USER_PACKAGE_NAME } from './user/user.pb.js';
 export { File, FILE_PACKAGE_NAME } from './file/file.pb.js';
-export { GEOLOCATION_PACKAGE_NAME } from './geolocation/geolocation.pb.js';
+export { GEOLOCATION_PACKAGE_NAME, TransactionPoint, Coordinate } from './geolocation/geolocation.pb.js';
 
 export type {
   RegisterRequest,
@@ -66,3 +66,16 @@ export {
   AccountServiceControllerMethods,
   ACCOUNT_SERVICE_NAME
 } from './account/account.services.pb.js';
+
+export enum MapMode {
+  INDIVIDUAL = 'INDIVIDUAL',
+  WEIGHTED = 'WEIGHTED'
+}
+
+export interface WeightedZone {
+  id: string;
+  latitude: number;
+  longitude: number;
+  weight: number;
+  radius: number;
+}
