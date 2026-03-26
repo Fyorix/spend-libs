@@ -1,5 +1,11 @@
 # @clement.pasteau/contracts
 
+## 1.0.2
+
+### Patch Changes
+
+- token response
+
 ## 1.0.1
 
 ### Patch Changes

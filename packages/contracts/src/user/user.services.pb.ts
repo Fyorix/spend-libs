@@ -16,7 +16,7 @@ export const protobufPackage = "user";
 export const USER_PACKAGE_NAME = "user";
 
 export interface UserServiceClient {
-  register(request: RegisterRequest): Observable<EmptyResponse>;
+  register(request: RegisterRequest): Observable<TokenResponse>;
 
   login(request: LoginRequest): Observable<TokenResponse>;
 
@@ -28,7 +28,7 @@ export interface UserServiceClient {
 }
 
 export interface UserServiceController {
-  register(request: RegisterRequest): Promise<EmptyResponse> | Observable<EmptyResponse> | EmptyResponse;
+  register(request: RegisterRequest): Promise<TokenResponse> | Observable<TokenResponse> | TokenResponse;
 
   login(request: LoginRequest): Promise<TokenResponse> | Observable<TokenResponse> | TokenResponse;
 
