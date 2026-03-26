@@ -10,6 +10,11 @@ export enum MapEventType {
   ZONE_UPDATED = 'ZONE_UPDATED',
 }
 
+export enum MapMode {
+  INDIVIDUAL = 'INDIVIDUAL',
+  WEIGHTED = 'WEIGHTED',
+}
+
 export interface TransactionCreatedPayload {
   transactionId: string;
   address: string;

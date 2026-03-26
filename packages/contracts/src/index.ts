@@ -67,15 +67,4 @@ export {
   ACCOUNT_SERVICE_NAME
 } from './account/account.services.pb.js';
 
-export enum MapMode {
-  INDIVIDUAL = 'INDIVIDUAL',
-  WEIGHTED = 'WEIGHTED'
-}
-
-export interface WeightedZone {
-  id: string;
-  latitude: number;
-  longitude: number;
-  weight: number;
-  radius: number;
-}
+// Map types moved to @clement.pasteau/shared to avoid @nestjs/microservices in frontend
