@@ -10,6 +10,6 @@ service UserService {
   rpc Register(RegisterRequest) returns (TokenResponse);
   rpc Login(LoginRequest) returns (TokenResponse);
   rpc VerifyToken(VerifyTokenRequest) returns (VerifyTokenResponse);
-  rpc GetUser(GetUserRequest) returns (UserResponse);
+  rpc GetMe(GetUserRequest) returns (UserResponse);
   rpc DeleteUser(DeleteUserRequest) returns (EmptyResponse);
 }

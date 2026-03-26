@@ -46,3 +46,23 @@ export {
   GeolocationServiceControllerMethods,
   GEOLOCATION_SERVICE_NAME
 } from './geolocation/geolocation.services.pb.js';
+
+export {
+  EventTag,
+  Transaction,
+  ACCOUNT_PACKAGE_NAME
+} from './account/account.pb.js';
+
+export type {
+  CreateTransactionRequest,
+  TransactionResponse,
+  ListTransactionsRequest,
+  ListTransactionsResponse
+} from './account/account.query.pb.js';
+
+export {
+  AccountServiceClient,
+  AccountServiceController,
+  AccountServiceControllerMethods,
+  ACCOUNT_SERVICE_NAME
+} from './account/account.services.pb.js';

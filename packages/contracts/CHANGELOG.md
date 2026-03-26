@@ -1,5 +1,11 @@
 # @clement.pasteau/contracts
 
+## 1.1.0
+
+### Minor Changes
+
+- account service tunnel
+
 ## 1.0.2
 
 ### Patch Changes

@@ -1,5 +1,6 @@
 export * from './infra/mappers/common.mapper.js';
 export * from './domain/event-tag.enum.js';
+export * from './domain/events.js';
 
 export const helloWorld = () => {
     return "Hello, World!";

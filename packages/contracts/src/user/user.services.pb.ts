@@ -22,7 +22,7 @@ export interface UserServiceClient {
 
   verifyToken(request: VerifyTokenRequest): Observable<VerifyTokenResponse>;
 
-  getUser(request: GetUserRequest): Observable<UserResponse>;
+  getMe(request: GetUserRequest): Observable<UserResponse>;
 
   deleteUser(request: DeleteUserRequest): Observable<EmptyResponse>;
 }
@@ -36,14 +36,14 @@ export interface UserServiceController {
     request: VerifyTokenRequest,
   ): Promise<VerifyTokenResponse> | Observable<VerifyTokenResponse> | VerifyTokenResponse;
 
-  getUser(request: GetUserRequest): Promise<UserResponse> | Observable<UserResponse> | UserResponse;
+  getMe(request: GetUserRequest): Promise<UserResponse> | Observable<UserResponse> | UserResponse;
 
   deleteUser(request: DeleteUserRequest): Promise<EmptyResponse> | Observable<EmptyResponse> | EmptyResponse;
 }
 
 export function UserServiceControllerMethods() {
   return function (constructor: Function) {
-    const grpcMethods: string[] = ["register", "login", "verifyToken", "getUser", "deleteUser"];
+    const grpcMethods: string[] = ["register", "login", "verifyToken", "getMe", "deleteUser"];
     for (const method of grpcMethods) {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
       GrpcMethod("UserService", method)(constructor.prototype[method], method, descriptor);

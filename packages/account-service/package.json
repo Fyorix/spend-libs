@@ -1,6 +1,6 @@
 {
   "name": "@clement.pasteau/account-service",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "Account service domain library",
   "license": "UNLICENSED",
   "type": "module",
