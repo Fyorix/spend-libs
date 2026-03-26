@@ -13,4 +13,9 @@ message UserResponse {
   User user = 1;
 }
 
+message VerifyTokenResponse {
+  bool isValid = 1;
+  string userId = 2;
+}
+
 message EmptyResponse {}

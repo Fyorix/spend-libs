@@ -18,6 +18,11 @@ export interface UserResponse {
   user: User | undefined;
 }
 
+export interface VerifyTokenResponse {
+  isValid: boolean;
+  userId: string;
+}
+
 export interface EmptyResponse {
 }
 

@@ -17,4 +17,8 @@ export interface GetUserRequest {
   id: string;
 }
 
+export interface VerifyTokenRequest {
+  token: string;
+}
+
 export const USER_PACKAGE_NAME = "user";

@@ -10,3 +10,7 @@ message LoginRequest {
 message GetUserRequest {
   string id = 1;
 }
+
+message VerifyTokenRequest {
+  string token = 1;
+}

@@ -8,8 +8,8 @@
 import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
 import { Observable } from "rxjs";
 import { DeleteUserRequest, RegisterRequest } from "./user.command.pb.js";
-import { GetUserRequest, LoginRequest } from "./user.query.pb.js";
-import { EmptyResponse, TokenResponse, UserResponse } from "./user.responses.pb.js";
+import { GetUserRequest, LoginRequest, VerifyTokenRequest } from "./user.query.pb.js";
+import { EmptyResponse, TokenResponse, UserResponse, VerifyTokenResponse } from "./user.responses.pb.js";
 
 export const protobufPackage = "user";
 
@@ -19,6 +19,8 @@ export interface UserServiceClient {
   register(request: RegisterRequest): Observable<EmptyResponse>;
 
   login(request: LoginRequest): Observable<TokenResponse>;
+
+  verifyToken(request: VerifyTokenRequest): Observable<VerifyTokenResponse>;
 
   getUser(request: GetUserRequest): Observable<UserResponse>;
 
@@ -30,6 +32,10 @@ export interface UserServiceController {
 
   login(request: LoginRequest): Promise<TokenResponse> | Observable<TokenResponse> | TokenResponse;
 
+  verifyToken(
+    request: VerifyTokenRequest,
+  ): Promise<VerifyTokenResponse> | Observable<VerifyTokenResponse> | VerifyTokenResponse;
+
   getUser(request: GetUserRequest): Promise<UserResponse> | Observable<UserResponse> | UserResponse;
 
   deleteUser(request: DeleteUserRequest): Promise<EmptyResponse> | Observable<EmptyResponse> | EmptyResponse;
@@ -37,7 +43,7 @@ export interface UserServiceController {
 
 export function UserServiceControllerMethods() {
   return function (constructor: Function) {
-    const grpcMethods: string[] = ["register", "login", "getUser", "deleteUser"];
+    const grpcMethods: string[] = ["register", "login", "verifyToken", "getUser", "deleteUser"];
     for (const method of grpcMethods) {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
       GrpcMethod("UserService", method)(constructor.prototype[method], method, descriptor);

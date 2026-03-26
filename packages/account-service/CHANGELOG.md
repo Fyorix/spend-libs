@@ -1,5 +1,11 @@
 # @clement.pasteau/account-service
 
+## 0.4.2
+
+### Patch Changes
+
+- bot.py added
+
 ## 0.4.1
 
 ### Patch Changes
