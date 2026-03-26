@@ -1,5 +1,11 @@
 # @clement.pasteau/contracts
 
+## 1.0.1
+
+### Patch Changes
+
+- b1e9163: update user proto
+
 ## 1.0.0
 
 ### Major Changes
