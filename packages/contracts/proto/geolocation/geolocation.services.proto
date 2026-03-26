@@ -9,4 +9,5 @@ import "geolocation/geolocation.responses.proto";
 service GeolocationService {
   rpc TrackTransaction (TrackTransactionRequest) returns (TrackTransactionResponse);
   rpc GetNearbyTransactions (GetNearbyTransactionsRequest) returns (GetNearbyTransactionsResponse);
+  rpc GetMapZones (GetMapZonesRequest) returns (GetMapZonesResponse);
 }

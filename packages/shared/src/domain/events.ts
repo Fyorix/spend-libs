@@ -31,6 +31,10 @@ export interface ZoneUpdatedPayload {
   radius: number;
 }
 
+export interface GetMapZonesResponse {
+  zones: ZoneUpdatedPayload[];
+}
+
 export interface TransactionPingedPayload {
   transactionId: string;
   userId: string;

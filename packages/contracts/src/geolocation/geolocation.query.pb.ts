@@ -15,4 +15,22 @@ export interface GetNearbyTransactionsRequest {
   tag: string;
 }
 
+export interface GetMapZonesRequest {
+  latitude: number;
+  longitude: number;
+  radiusKm: number;
+}
+
+export interface MapZone {
+  id: string;
+  latitude: number;
+  longitude: number;
+  weight: number;
+  radius: number;
+}
+
+export interface GetMapZonesResponse {
+  zones: MapZone[];
+}
+
 export const GEOLOCATION_PACKAGE_NAME = "geolocation";

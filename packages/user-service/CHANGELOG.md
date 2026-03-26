@@ -1,5 +1,12 @@
 # @clement.pasteau/user-service
 
+## 0.4.5
+
+### Patch Changes
+
+- Updated dependencies
+  - @clement.pasteau/shared@1.2.2
+
 ## 0.4.4
 
 ### Patch Changes

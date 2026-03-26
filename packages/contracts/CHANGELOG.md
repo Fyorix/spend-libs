@@ -1,5 +1,11 @@
 # @clement.pasteau/contracts
 
+## 1.2.2
+
+### Patch Changes
+
+- events geoloc
+
 ## 1.2.1
 
 ### Patch Changes
