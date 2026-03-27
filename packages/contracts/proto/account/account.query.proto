@@ -10,6 +10,7 @@ message CreateTransactionRequest {
   EventTag tag = 3;
   string user_id = 4;
   string address = 5;
+  string provider = 6;
 }
 
 message TransactionResponse {

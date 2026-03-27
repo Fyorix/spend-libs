@@ -27,6 +27,7 @@ export interface TransactionCreatedPayload {
   amount: number;
   userId: string;
   tag: EventTag;
+  provider?: string;
 }
 
 export interface ZoneUpdatedPayload {

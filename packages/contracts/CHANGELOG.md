@@ -1,5 +1,11 @@
 # @clement.pasteau/contracts
 
+## 1.3.2
+
+### Patch Changes
+
+- account-service -> provider added on transaction
+
 ## 1.3.1
 
 ### Patch Changes
