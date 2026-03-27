@@ -1,5 +1,11 @@
 # @clement.pasteau/shared
 
+## 1.3.3
+
+### Patch Changes
+
+- shared -> add provider on transaction
+
 ## 1.3.2
 
 ### Patch Changes
