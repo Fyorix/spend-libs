@@ -1,4 +1,4 @@
-import { FileEntity } from '../../domain/entities/file.entity.js';
+import { FileEntity, FileStatus } from '../../domain/entities/file.entity.js';
 import { FileModel } from '../models/file.model.js';
 
 export class FileMapper {
@@ -10,7 +10,7 @@ export class FileMapper {
       model.mimeType,
       model.size,
       model.id,
-      model.status as any,
+      model.status as FileStatus
     );
   }
 
@@ -22,7 +22,7 @@ export class FileMapper {
     model.minioKey = entity.getMinioKey();
     model.mimeType = entity.getMimeType();
     model.size = entity.getSize();
-    model.status = entity.getStatus() as any;
+    model.status = entity.getStatus() as FileStatus;
     return model;
   }
 }

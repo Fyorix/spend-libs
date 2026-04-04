@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { FileEntity } from '../../domain/entities/file.entity.js';
 import { IFileRepository } from '../../domain/core/ports/file.repository.js';
 
