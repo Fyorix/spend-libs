@@ -68,3 +68,17 @@ export interface ZoneUpdatedEvent extends RedisEvent<ZoneUpdatedPayload> {
 export interface TransactionPingedEvent extends RedisEvent<TransactionPingedPayload> {
   type: MapEventType.TRANSACTION_PINGED;
 }
+
+export enum FileEventType {
+  FILE_UPLOADED = 'FILE_UPLOADED',
+  FILE_DELETED = 'FILE_DELETED',
+}
+
+export interface FileUploadedPayload {
+  fileId: string;
+  userId: string;
+}
+
+export interface FileCreatedEvent extends RedisEvent<FileUploadedPayload> {
+  type: FileEventType.FILE_UPLOADED;
+}
