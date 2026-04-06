@@ -9,4 +9,5 @@ message File {
   string minioKey = 4;
   string mimeType = 5;
   int64 size = 6;
+  string status = 7;
 }

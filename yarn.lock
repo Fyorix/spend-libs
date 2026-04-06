@@ -735,6 +735,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@damien.lugagne-delpon/file-service@workspace:packages/file-service":
+  version: 0.0.0-use.local
+  resolution: "@damien.lugagne-delpon/file-service@workspace:packages/file-service"
+  dependencies:
+    "@clement.pasteau/shared": "workspace:*"
+    "@eslint/js": "npm:^10.0.1"
+    "@types/jest": "npm:^30.0.0"
+    "@types/node": "npm:^25.5.0"
+    eslint: "npm:^10.0.3"
+    reflect-metadata: "npm:^0.2.2"
+    typeorm: "npm:^0.3.28"
+    typescript: "npm:^5.9.3"
+    typescript-eslint: "npm:^8.57.1"
+  languageName: unknown
+  linkType: soft
+
 "@emnapi/core@npm:^1.4.3":
   version: 1.8.1
   resolution: "@emnapi/core@npm:1.8.1"
