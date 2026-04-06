@@ -13,6 +13,7 @@ export enum MapEventType {
 export enum WebSocketEvent {
   TRANSACTION_PING = 'transaction-ping',
   ZONE_UPDATE = 'zone-update',
+  FILE_UPLOADED = 'file-uploaded',
 }
 
 export enum MapMode {
@@ -79,6 +80,6 @@ export interface FileUploadedPayload {
   userId: string;
 }
 
-export interface FileCreatedEvent extends RedisEvent<FileUploadedPayload> {
+export interface FileUploadedEvent extends RedisEvent<FileUploadedPayload> {
   type: FileEventType.FILE_UPLOADED;
 }
