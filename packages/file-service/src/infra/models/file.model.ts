@@ -20,6 +20,6 @@ export class FileModel {
   @Column()
   size: number;
 
-  @Column({ nullable: true })
-  status?: string;
+  @Column()
+  status: string;
 }

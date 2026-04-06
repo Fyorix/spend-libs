@@ -6,7 +6,7 @@ export enum FileStatus {
 
 
 export class FileEntity {
-  private id?: string;
+  private id!: string;
   private userId!: string;
   private originalName!: string;
   private minioKey!: string;
@@ -24,7 +24,7 @@ export class FileEntity {
     this.status = status;
   }
 
-  public getId(): string | undefined {
+  public getId(): string {
     return this.id;
   }
 
